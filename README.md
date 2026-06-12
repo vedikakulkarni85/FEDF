@@ -1,4 +1,4 @@
-# Medical Inventory Management System
+# pharmacy Inventory Management 
 
 ## Project Overview
 
