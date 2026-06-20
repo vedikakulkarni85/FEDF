@@ -1,0 +1,570 @@
+/* ============================================================
+   PHARMACY INVENTORY MANAGEMENT SYSTEM - STYLESHEET
+   Adapted from Project_FEDF UI design
+   ============================================================ */
+
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap');
+
+/* ---- RESET & BASE STYLES ---- */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'IBM Plex Sans', Arial, sans-serif;
+  background-color: #f0f2f5;
+  color: #333;
+}
+
+/* ============================================================
+   NAVBAR
+   ============================================================ */
+.navbar {
+  background-color: #2c6fad;
+  color: white;
+  padding: 12px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 48px;
+}
+
+.navbar-brand {
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.navbar-user {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  font-size: 13px;
+}
+
+.logout-btn {
+  background: rgba(255, 255, 255, 0.2);
+  color: white;
+  border: none;
+  padding: 4px 10px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 14px;
+  font-family: 'IBM Plex Sans', Arial, sans-serif;
+}
+
+.logout-btn:hover {
+  background: rgba(255, 255, 255, 0.35);
+}
+
+/* ============================================================
+   LAYOUT
+   ============================================================ */
+.app-container {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+}
+
+.main-layout {
+  display: flex;
+  flex: 1;
+  overflow: hidden;
+  min-height: calc(100vh - 48px);
+}
+
+/* ---- SIDEBAR ---- */
+.sidebar {
+  width: 210px;
+  background-color: #1e3a5f;
+  padding: 20px 0;
+  flex-shrink: 0;
+  overflow-y: auto;
+}
+
+.sidebar-menu {
+  list-style: none;
+}
+
+.sidebar-menu li {
+  padding: 0;
+}
+
+.sidebar-menu a {
+  display: block;
+  padding: 10px 20px;
+  color: #ccd6f6;
+  text-decoration: none;
+  font-size: 14px;
+  border-left: 3px solid transparent;
+  transition: background 0.15s, color 0.15s;
+}
+
+.sidebar-menu a:hover {
+  background-color: #2c5282;
+  color: white;
+}
+
+.sidebar-menu a.active {
+  background-color: #2c5282;
+  color: white;
+  border-left: 3px solid #63b3ed;
+}
+
+.sidebar-section {
+  font-size: 11px;
+  color: #718096;
+  padding: 14px 20px 4px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+/* ---- MAIN CONTENT ---- */
+.content-workspace {
+  flex: 1;
+  padding: 24px;
+  overflow-y: auto;
+}
+
+/* Page heading */
+.page-title {
+  font-size: 22px;
+  font-weight: bold;
+  margin-bottom: 20px;
+  color: #1e3a5f;
+  border-bottom: 2px solid #2c6fad;
+  padding-bottom: 8px;
+}
+
+/* ============================================================
+   CARDS
+   ============================================================ */
+.card {
+  background: white;
+  border-radius: 6px;
+  padding: 20px;
+  margin-bottom: 20px;
+  border: 1px solid #e2e8f0;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.02);
+}
+
+.card h3, .card-title {
+  font-size: 16px;
+  font-weight: bold;
+  color: #2d3748;
+  margin-bottom: 14px;
+}
+
+/* ============================================================
+   DASHBOARD STAT CARDS
+   ============================================================ */
+.stats-grid, .dashboard-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+  margin-bottom: 20px;
+}
+
+.stat-card {
+  background: white;
+  border-radius: 6px;
+  padding: 16px;
+  border: 1px solid #e2e8f0;
+  text-align: center;
+}
+
+.stat-card .card-value, .stat-card .stat-num {
+  font-size: 32px;
+  font-weight: bold;
+}
+
+.stat-card h3, .stat-card .stat-label {
+  font-size: 13px;
+  color: #718096;
+  margin-top: 4px;
+  margin-bottom: 0;
+}
+
+.stat-blue .card-value, .stat-blue .stat-num   { color: #2c6fad; }
+.stat-yellow .card-value, .stat-yellow .stat-num { color: #d97706; }
+.stat-red .card-value, .stat-red .stat-num     { color: #dc2626; }
+.stat-green .card-value, .stat-green .stat-num  { color: #16a34a; }
+
+.card-warning { border-top: 4px solid #d97706; }
+
+/* ============================================================
+   TABLES
+   ============================================================ */
+table, .data-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 14px;
+}
+
+th {
+  background-color: #edf2f7;
+  color: #4a5568;
+  text-align: left;
+  padding: 10px 12px;
+  border-bottom: 2px solid #e2e8f0;
+  font-weight: 600;
+}
+
+td {
+  padding: 10px 12px;
+  border-bottom: 1px solid #e2e8f0;
+  font-family: 'IBM Plex Sans', Arial, sans-serif;
+}
+
+td code {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 12px;
+  background: #f1f5f9;
+  padding: 2px 5px;
+  border-radius: 3px;
+}
+
+tr:hover {
+  background-color: #f7fafc;
+}
+
+.data-table th, .data-table td {
+  padding: 10px 12px;
+  text-align: left;
+  border-bottom: 1px solid #e2e8f0;
+}
+
+.data-table th {
+  background-color: #edf2f7;
+}
+
+/* ============================================================
+   FORMS
+   ============================================================ */
+.form-group {
+  margin-bottom: 14px;
+}
+
+.form-group label {
+  display: block;
+  font-size: 13px;
+  font-weight: bold;
+  color: #4a5568;
+  margin-bottom: 5px;
+}
+
+.form-group input,
+.form-group select,
+.data-form input,
+.data-form select {
+  width: 100%;
+  padding: 8px 10px;
+  border: 1px solid #cbd5e0;
+  border-radius: 4px;
+  font-size: 14px;
+  color: #2d3748;
+  font-family: 'IBM Plex Sans', Arial, sans-serif;
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.data-form input:focus,
+.data-form select:focus {
+  outline: none;
+  border-color: #2c6fad;
+}
+
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  margin-bottom: 12px;
+}
+
+.form-row input, .form-row select {
+  padding: 8px 10px;
+  border: 1px solid #cbd5e0;
+  border-radius: 4px;
+  width: 100%;
+  font-family: 'IBM Plex Sans', Arial, sans-serif;
+  font-size: 14px;
+}
+
+.data-form {
+  background: white;
+  padding: 20px;
+  border-radius: 6px;
+  margin-bottom: 20px;
+  border: 1px solid #e2e8f0;
+}
+
+.data-form h3 {
+  font-size: 16px;
+  font-weight: bold;
+  color: #2d3748;
+  margin-bottom: 14px;
+}
+
+/* ============================================================
+   BUTTONS
+   ============================================================ */
+.btn {
+  padding: 8px 16px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 13px;
+  font-weight: bold;
+  font-family: 'IBM Plex Sans', Arial, sans-serif;
+}
+
+.btn-primary            { background-color: #2c6fad; color: white; }
+.btn-primary:hover      { background-color: #2558a0; }
+
+.btn-success            { background-color: #16a34a; color: white; }
+.btn-success:hover      { background-color: #15803d; }
+
+.btn-danger             { background-color: #dc2626; color: white; }
+.btn-danger:hover       { background-color: #b91c1c; }
+
+.btn-warning            { background-color: #d97706; color: white; }
+.btn-warning:hover      { background-color: #b45309; }
+
+.btn-sm { padding: 5px 10px; font-size: 12px; }
+
+.btn-edit {
+  padding: 5px 10px;
+  border: none;
+  border-radius: 3px;
+  cursor: pointer;
+  margin-right: 4px;
+  font-size: 12px;
+  background: #e3f2fd;
+  color: #1e88e5;
+  font-family: 'IBM Plex Sans', Arial, sans-serif;
+}
+
+.btn-delete {
+  padding: 5px 10px;
+  border: none;
+  border-radius: 3px;
+  cursor: pointer;
+  font-size: 12px;
+  background: #ffebee;
+  color: #c62828;
+  font-family: 'IBM Plex Sans', Arial, sans-serif;
+}
+
+.btn-group {
+  display: flex;
+  gap: 8px;
+  margin-top: 10px;
+}
+
+/* ============================================================
+   BADGES
+   ============================================================ */
+.badge {
+  display: inline-block;
+  padding: 3px 8px;
+  border-radius: 4px;
+  font-size: 11px;
+  font-weight: bold;
+}
+
+.badge-danger, .critical-badge  { background-color: #fee2e2; color: #dc2626; padding: 3px 8px; border-radius: 4px; font-size: 11px; font-weight: bold; }
+.badge-warning, .badge-low      { background-color: #fef3c7; color: #d97706; padding: 3px 8px; border-radius: 4px; font-size: 11px; font-weight: bold; }
+.badge-success, .badge-ok, .normal-badge { background-color: #dcfce7; color: #16a34a; padding: 3px 8px; border-radius: 4px; font-size: 11px; font-weight: bold; }
+.badge-info     { background-color: #dbeafe; color: #1d4ed8; padding: 3px 8px; border-radius: 4px; font-size: 11px; font-weight: bold; }
+
+/* ============================================================
+   ALERTS
+   ============================================================ */
+.alert, .expiry-alert-zone {
+  padding: 12px 16px;
+  border-radius: 4px;
+  margin-bottom: 14px;
+  font-size: 14px;
+}
+
+.alert-danger, .expiry-alert-zone  { background-color: #fee2e2; color: #991b1b; border-left: 4px solid #dc2626; }
+.alert-warning { background-color: #fef3c7; color: #92400e; border-left: 4px solid #f59e0b; }
+.alert-success { background-color: #dcfce7; color: #166534; border-left: 4px solid #22c55e; }
+.alert-info    { background-color: #dbeafe; color: #1e40af; border-left: 4px solid #3b82f6; }
+
+/* ============================================================
+   LOGIN PAGE
+   ============================================================ */
+.login-container {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, #1e3a5f, #2c6fad);
+}
+
+.login-box {
+  background: white;
+  padding: 40px;
+  border-radius: 8px;
+  width: 360px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+}
+
+.login-box h2 {
+  text-align: center;
+  color: #1e3a5f;
+  margin-bottom: 6px;
+}
+
+.login-box h3 {
+  font-size: 14px;
+  color: #4a5568;
+  text-align: center;
+  margin-bottom: 16px;
+}
+
+.login-box p {
+  text-align: center;
+  color: #718096;
+  font-size: 13px;
+  margin-bottom: 24px;
+}
+
+/* Role selector tabs */
+.role-selector {
+  display: flex;
+  margin-bottom: 20px;
+  border: 1px solid #cbd5e0;
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.role-selector button {
+  flex: 1;
+  padding: 10px;
+  border: none;
+  background: #edf2f7;
+  cursor: pointer;
+  font-weight: bold;
+  font-size: 13px;
+  font-family: 'IBM Plex Sans', Arial, sans-serif;
+  color: #4a5568;
+}
+
+.role-selector button.active-role {
+  background: #2c6fad;
+  color: white;
+}
+
+.error-msg {
+  color: #dc2626;
+  font-size: 13px;
+  margin-bottom: 12px;
+  font-weight: 500;
+}
+
+/* ============================================================
+   SEARCH BAR
+   ============================================================ */
+.search-bar {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 16px;
+}
+
+.search-bar input {
+  flex: 1;
+  padding: 8px 12px;
+  border: 1px solid #cbd5e0;
+  border-radius: 4px;
+  font-size: 14px;
+  font-family: 'IBM Plex Sans', Arial, sans-serif;
+  max-width: 400px;
+}
+
+/* ============================================================
+   MODAL
+   ============================================================ */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.modal-box {
+  background: white;
+  border-radius: 8px;
+  padding: 24px;
+  width: 480px;
+  max-width: 95vw;
+  max-height: 90vh;
+  overflow-y: auto;
+}
+
+.modal-box h3 {
+  margin-bottom: 16px;
+  color: #1e3a5f;
+}
+
+/* ============================================================
+   ACTIVITY LOG
+   ============================================================ */
+.activity-item {
+  padding: 10px 0;
+  border-bottom: 1px solid #f0f0f0;
+  font-size: 13px;
+  color: #555;
+}
+
+.activity-item:last-child {
+  border-bottom: none;
+}
+
+.activity-time {
+  color: #999;
+  font-size: 11px;
+}
+
+/* ============================================================
+   TABLE ROW STATUS COLORS
+   ============================================================ */
+.expired-row {
+  background-color: #fff5f5 !important;
+}
+
+.near-expiry-row {
+  background-color: #fffbeb !important;
+}
+
+/* ============================================================
+   DASHBOARD METRICS
+   ============================================================ */
+.dashboard-metrics-container {
+  margin-bottom: 20px;
+}
+
+/* ============================================================
+   RESPONSIVE
+   ============================================================ */
+@media (max-width: 768px) {
+  .stats-grid, .dashboard-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .sidebar {
+    width: 160px;
+  }
+
+  .form-row {
+    grid-template-columns: 1fr;
+  }
+}
